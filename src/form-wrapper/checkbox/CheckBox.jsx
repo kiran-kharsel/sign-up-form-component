@@ -3,7 +3,7 @@ import './style.css'
 
 function CheckBox() {
   return (
-    <input type="checkbox" />
+    <input type="checkbox"/>
   )
 }
 
