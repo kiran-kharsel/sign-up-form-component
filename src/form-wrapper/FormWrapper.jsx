@@ -5,7 +5,7 @@ import CheckBox from './checkbox'
 
 function FormWrapper({inputs}) {
   return (
-    <div>
+    <div className='form-wrapper'>
       {
         inputs.map((input, index)=>{
           if(input.type === 'checkbox'){
