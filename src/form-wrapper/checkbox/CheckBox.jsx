@@ -1,9 +1,30 @@
 import React from 'react'
 import './style.css'
 
-function CheckBox() {
+function CheckBox({...input}) {
+  const {
+    label='',
+    id='',
+    value='',
+    name='',
+    error='',
+    disabled=false,
+    readonly=false,
+    checked,
+  } = input;
+
+
   return (
-    <input type="checkbox"/>
+    <div>
+      <input 
+      id={id}
+      disabled={disabled}
+      readOnly={readonly}
+      name={name}
+      value={value}
+      type="checkbox"/>
+      <label htmlFor={id}>{label}</label>
+    </div>
   )
 }
 
