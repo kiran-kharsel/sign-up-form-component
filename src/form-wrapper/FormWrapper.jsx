@@ -3,16 +3,23 @@ import './style.css'
 import TextField from './text-field'
 import CheckBox from './checkbox'
 
-function FormWrapper({inputs}) {
+function FormWrapper({inputs, onInputChange}) {
   return (
     <div className='form-wrapper'>
       {
         inputs.map((input, index)=>{
           if(input.type === 'checkbox'){
-            return <CheckBox key={input.id} {...input}/>
+            return <CheckBox 
+            onChange={onInputChange}
+            index={index}
+            key={input.id} {...input}/>
           }
 
-          return <TextField key={input.id} {...input}/>
+          return <TextField 
+          index={index}
+          key={input.id} {...input}
+          onChange={onInputChange}
+          />
         })
       }
     </div>

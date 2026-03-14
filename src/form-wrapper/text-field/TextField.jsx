@@ -1,11 +1,13 @@
 import React from 'react'
 import './style.css'
 
-function TextField({...input}) {
-  const {
+function TextField({onChange, ...input}) {
+  let {
+    type='',
     label='',
     placeholder='',
     id='',
+    index='',
     value='',
     name='',
     error='',
@@ -13,17 +15,23 @@ function TextField({...input}) {
     readonly=false,
   } = input;
 
+  function handleChange(e){
+    onChange({id, index, value: e.target.value, type})
+  }
+
 
   return (
     <div>
-      <label htmlFor="">{label}</label>
+      <label htmlFor={id}>{label}</label>
       <input 
       id={id}
       disabled={disabled}
       readOnly={readonly}
       name={name}
       value={value}
-      type="text" placeholder={placeholder}/>
+      type="text" placeholder={placeholder}
+      onChange={handleChange}
+      />
     </div>
   )
 }

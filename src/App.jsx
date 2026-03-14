@@ -66,9 +66,23 @@ const Inputs = [
 function App() {
   const [inputs, setInputs] = useState(structuredClone(Inputs))
 
+  function onInputChange({id, index, value, checked, type}){
+    const oldState = structuredClone(inputs)
+
+    if(type === 'checkbox'){
+      oldState[index].checked = checked
+    } else{
+      oldState[index].value = value
+    }
+
+    setInputs(oldState)
+  }
+
   return (
     <>
-     <FormWrapper inputs={inputs}/>
+     <FormWrapper inputs={inputs}
+     onInputChange={onInputChange}
+     />
     </>
   )
 }
