@@ -3,9 +3,10 @@ import './style.css'
 import TextField from './text-field'
 import CheckBox from './checkbox'
 
-function FormWrapper({inputs, onInputChange}) {
+function FormWrapper({inputs, onInputChange, onCancel, onSubmit}) {
   return (
-    <div className='form-wrapper'>
+    <form onSubmit={onSubmit}
+    className='form-wrapper'>
       {
         inputs.map((input, index)=>{
           if(input.type === 'checkbox'){
@@ -22,7 +23,12 @@ function FormWrapper({inputs, onInputChange}) {
           />
         })
       }
-    </div>
+
+      <div>
+        <button onClick={onCancel}>cancel</button>
+        <button type='submit'>submit</button>
+      </div>
+    </form>
   )
 }
 

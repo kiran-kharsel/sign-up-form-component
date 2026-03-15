@@ -76,12 +76,23 @@ function App() {
     }
 
     setInputs(oldState)
+  };
+
+  function handleOnCancel(){
+    setInputs(structuredClone(inputs))
+  }
+
+  function handleOnSubmit(){
+    setInputs(inputs)
   }
 
   return (
     <>
-     <FormWrapper inputs={inputs}
+     <FormWrapper 
+     inputs={inputs}
      onInputChange={onInputChange}
+     onCancel={handleOnCancel}
+     onSubmit={handleOnSubmit}
      />
     </>
   )
