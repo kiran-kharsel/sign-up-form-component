@@ -83,7 +83,7 @@ function App() {
   }
 
   function handleOnSubmit(){
-    setInputs(inputs)
+    console.log('submit')
   }
 
   return (

@@ -4,8 +4,16 @@ import TextField from './text-field'
 import CheckBox from './checkbox'
 
 function FormWrapper({inputs, onInputChange, onCancel, onSubmit}) {
+
+  function handleSubmit(e){
+    e.preventDefault();
+    onSubmit()
+  };
+
+
+  
   return (
-    <form onSubmit={onSubmit}
+    <form onSubmit={handleSubmit}
     className='form-wrapper'>
       {
         inputs.map((input, index)=>{
