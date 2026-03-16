@@ -83,7 +83,19 @@ function App() {
   }
 
   function handleOnSubmit(){
-    console.log('submit')
+    let params = {};
+
+    inputs.forEach((input) => {
+      if(input.type === 'checkbox'){
+        if(input.checked){
+          params[input.name] = input.value
+        }
+      }else{
+        params[input.name] = input.value
+      }
+    })
+
+    console.log(params)
   }
 
   return (
