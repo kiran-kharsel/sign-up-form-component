@@ -17,6 +17,7 @@ const Inputs = [
     error: '',
     disabled: false,
     readonly: false,
+    required: true,
   },
   {
     type: 'text',
@@ -28,6 +29,7 @@ const Inputs = [
     error: '',
     disabled: false,
     readonly: false,
+    required: true,
   },
   {
     type: 'email',
@@ -39,6 +41,7 @@ const Inputs = [
     error: '',
     disabled: false,
     readonly: false,
+    required: true,
   },
   {
     type: 'number',
@@ -50,6 +53,7 @@ const Inputs = [
     error: '',
     disabled: false,
     readonly: false,
+    required: true,
   },
   {
     type: 'checkbox',
@@ -60,6 +64,7 @@ const Inputs = [
     error: '',
     disabled: false,
     readonly: false,
+    required: true,
   },
 ]
 

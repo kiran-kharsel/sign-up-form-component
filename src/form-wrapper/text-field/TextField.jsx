@@ -13,6 +13,7 @@ function TextField({onChange, ...input}) {
     error='',
     disabled=false,
     readonly=false,
+    required,
   } = input;
 
   function handleChange(e){
@@ -22,7 +23,10 @@ function TextField({onChange, ...input}) {
 
   return (
     <div>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>
+        {label}
+        {required && <sup>*</sup>}
+      </label>
       <input 
       id={id}
       disabled={disabled}
