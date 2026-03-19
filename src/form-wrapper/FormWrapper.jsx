@@ -3,7 +3,7 @@ import './style.css'
 import TextField from './text-field'
 import CheckBox from './checkbox'
 
-function FormWrapper({inputs, onInputChange, onCancel, onSubmit, disableSubmitBtn}) {
+function FormWrapper({inputs, onInputChange, onCancel, onSubmit, disableSubmitBtn, onBlur}) {
 
   function handleSubmit(e){
     e.preventDefault();
@@ -20,13 +20,17 @@ function FormWrapper({inputs, onInputChange, onCancel, onSubmit, disableSubmitBt
           if(input.type === 'checkbox'){
             return <CheckBox 
             onChange={onInputChange}
+            onBlur={onBlur}
             index={index}
-            key={input.id} {...input}/>
+            key={input.id} 
+            {...input}/>
           }
 
           return <TextField 
           index={index}
-          key={input.id} {...input}
+          key={input.id} 
+          {...input}
+          onBlur={onBlur}
           onChange={onInputChange}
           />
         })

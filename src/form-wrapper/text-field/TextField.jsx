@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-function TextField({onChange, ...input}) {
+function TextField({onChange, onBlur,...input}) {
   let {
     type='',
     label='',
@@ -20,6 +20,10 @@ function TextField({onChange, ...input}) {
     onChange({id, index, value: e.target.value, type})
   }
 
+  function handleBlur(e){
+    onBlur({id, index, value: e.target.value, type})
+  }
+
 
   return (
     <div>
@@ -35,7 +39,9 @@ function TextField({onChange, ...input}) {
       value={value}
       type="text" placeholder={placeholder}
       onChange={handleChange}
+      onBlur={handleBlur}
       />
+      {!!error && <div>{error}</div>}
     </div>
   )
 }

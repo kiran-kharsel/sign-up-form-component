@@ -83,6 +83,18 @@ function App() {
     setInputs(oldState)
   };
 
+  function onInputBlur({id, index, value, checked, type}){
+    const oldState = structuredClone(inputs)
+
+    if(type === 'text'){
+      if(value.length <= 3){
+        oldState[index].error = 'text must be greater than 3 character'
+      }
+    } 
+
+    setInputs(oldState)
+  };
+
   function handleOnCancel(){
     setInputs(structuredClone(inputs))
   }
@@ -130,6 +142,7 @@ function App() {
      <FormWrapper 
      inputs={inputs}
      onInputChange={onInputChange}
+     onBlur={onInputBlur}
      onCancel={handleOnCancel}
      onSubmit={handleOnSubmit}
      disableSubmitBtn={disableSubmitBtn}
