@@ -80,6 +80,7 @@ function App() {
       oldState[index].value = value
     }
 
+    oldState[index].error = '';
     setInputs(oldState)
   };
 

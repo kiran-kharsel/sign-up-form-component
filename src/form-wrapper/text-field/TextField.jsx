@@ -41,7 +41,7 @@ function TextField({onChange, onBlur,...input}) {
       onChange={handleChange}
       onBlur={handleBlur}
       />
-      {!!error && <div>{error}</div>}
+      {!!error && <div style={{color: 'red'}}>{error}</div>}
     </div>
   )
 }
