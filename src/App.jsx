@@ -94,14 +94,36 @@ function App() {
       if(input.type === 'checkbox'){
         if(input.checked){
           params[input.name] = input.value
+        }else{
+          return
         }
       }else{
-        params[input.name] = input.value
+        if(input.value){
+          params[input.name] = input.value
+        }else{
+          return;
+        }
       }
     })
 
     console.log(params)
   }
+
+
+  function disableSubmit(inputs){
+    let disable = false;
+
+    for(let input of inputs){
+      if(input.required && !input.value){
+        disable = true;
+        break
+      };
+    }
+
+    return disable;
+  }
+
+  const disableSubmitBtn = disableSubmit(inputs)
 
   return (
     <>
@@ -110,6 +132,7 @@ function App() {
      onInputChange={onInputChange}
      onCancel={handleOnCancel}
      onSubmit={handleOnSubmit}
+     disableSubmitBtn={disableSubmitBtn}
      />
     </>
   )

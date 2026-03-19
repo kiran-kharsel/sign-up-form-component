@@ -3,7 +3,7 @@ import './style.css'
 import TextField from './text-field'
 import CheckBox from './checkbox'
 
-function FormWrapper({inputs, onInputChange, onCancel, onSubmit}) {
+function FormWrapper({inputs, onInputChange, onCancel, onSubmit, disableSubmitBtn}) {
 
   function handleSubmit(e){
     e.preventDefault();
@@ -34,7 +34,7 @@ function FormWrapper({inputs, onInputChange, onCancel, onSubmit}) {
 
       <div>
         <button onClick={onCancel}>cancel</button>
-        <button type='submit'>submit</button>
+        <button disabled={disableSubmitBtn} type='submit'>submit</button>
       </div>
     </form>
   )
